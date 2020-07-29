@@ -133,7 +133,7 @@ public class BigReal implements FieldElement<BigReal>, Comparable<BigReal>, Seri
      * @param val value of the instance
      */
     public BigReal(double val) {
-        d = new BigDecimal(val);
+        d = BigDecimal.valueOf(val);
     }
 
     /** Build an instance from a double.
@@ -141,7 +141,7 @@ public class BigReal implements FieldElement<BigReal>, Comparable<BigReal>, Seri
      * @param mc context to use
      */
     public BigReal(double val, MathContext mc) {
-        d = new BigDecimal(val, mc);
+        d = new java.math.BigDecimal("val", mc);
     }
 
     /** Build an instance from an int.

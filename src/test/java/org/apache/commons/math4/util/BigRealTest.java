@@ -159,7 +159,7 @@ public class BigRealTest {
         BigDecimal pi = new BigDecimal(
                                        "3.1415926535897932384626433832795028841971693993751");
         Assert.assertEquals(pi, new BigReal(pi).bigDecimalValue());
-        Assert.assertEquals(new BigDecimal(0.5),
+        Assert.assertEquals(BigDecimal.valueOf(0.5),
                             new BigReal(1.0 / 2.0).bigDecimalValue());
     }
 

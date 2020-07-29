@@ -370,25 +370,25 @@ public class DfpTest extends ExtendedFieldElementAbstractTest<Dfp> {
 
     // utility function to help test comparisons
     private void cmptst(Dfp a, Dfp b, String op, boolean result, double num) {
-        if (op == "equal") {
+        if (op.equals("equal")) {
             if (a.equals(b) != result) {
                 assertionFailOpNum(op, num);
             }
         }
 
-        if (op == "unequal") {
+        if (op.equals("unequal")) {
             if (a.unequal(b) != result) {
                 assertionFailOpNum(op, num);
             }
         }
 
-        if (op == "lessThan") {
+        if (op.equals("lessThan")) {
             if (a.lessThan(b) != result) {
                 assertionFailOpNum(op, num);
             }
         }
 
-        if (op == "greaterThan") {
+        if (op.equals("greaterThan")) {
             if (a.greaterThan(b) != result) {
                 assertionFailOpNum(op, num);
             }

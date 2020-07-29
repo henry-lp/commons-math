@@ -100,7 +100,7 @@ public class CycleCrossoverTest {
             // Same as above only for the second parent.
             index = 0;
             for (final Integer k : c2) {
-                if (p2[index] != k) {
+                if (!p2[index].equals(k)) {
                     Assert.assertEquals(k, p1[index]);
                 } else {
                     Assert.assertEquals(k, p2[index]);

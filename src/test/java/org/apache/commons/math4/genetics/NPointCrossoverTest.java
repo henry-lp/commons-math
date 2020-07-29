@@ -124,7 +124,7 @@ public class NPointCrossoverTest {
 
         List<Integer> rep = p1Rep;
         for (int i = 0; i < length; i++) {
-            if (rep.get(i) != cRep.get(i)) {
+            if (!rep.get(i).equals(cRep.get(i))) {
                 crossovers++;
                 rep = rep == p1Rep ? p2Rep : p1Rep;
             }

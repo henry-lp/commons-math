@@ -228,23 +228,14 @@ public class EmpiricalDistribution extends AbstractRealDistribution
     public void load(File file) throws IOException, NullArgumentException {
         MathUtils.checkNotNull(file);
         Charset charset = Charset.forName(FILE_CHARSET);
-        InputStream is = new FileInputStream(file);
         BufferedReader in = new BufferedReader(new InputStreamReader(is, charset));
-        try {
-            DataAdapter da = new StreamDataAdapter(in);
-            da.computeStats();
-            // new adapter for second pass
-            is = new FileInputStream(file);
-            in = new BufferedReader(new InputStreamReader(is, charset));
-            fillBinStats(new StreamDataAdapter(in));
-            loaded = true;
-        } finally {
-            try {
-                in.close();
-            } catch (IOException ex) { //NOPMD
-                // ignore
-            }
-        }
+		try (java.io.InputStream is = new java.io.FileInputStream(file)) {
+			org.apache.commons.math4.distribution.EmpiricalDistribution.DataAdapter da = new org.apache.commons.math4.distribution.EmpiricalDistribution.StreamDataAdapter(in);
+			da.computeStats();
+			in = new java.io.BufferedReader(new java.io.InputStreamReader(is, charset));
+			fillBinStats(new org.apache.commons.math4.distribution.EmpiricalDistribution.StreamDataAdapter(in));
+			loaded = true;
+		}
     }
 
     /**

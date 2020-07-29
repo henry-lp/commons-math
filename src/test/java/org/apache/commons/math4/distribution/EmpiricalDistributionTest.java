@@ -61,20 +61,17 @@ public final class EmpiricalDistributionTest extends RealDistributionAbstractTes
         empiricalDistribution = new EmpiricalDistribution(100);
         url = getClass().getResource("testData.txt");
         final ArrayList<Double> list = new ArrayList<>();
-        try {
-            empiricalDistribution2 = new EmpiricalDistribution(100);
-            BufferedReader in =
-                new BufferedReader(new InputStreamReader(
-                        url.openStream()));
-            String str = null;
-            while ((str = in.readLine()) != null) {
-                list.add(Double.valueOf(str));
-            }
-            in.close();
-            in = null;
-        } catch (IOException ex) {
-            Assert.fail("IOException " + ex);
-        }
+		try (java.io.BufferedReader in = new java.io.BufferedReader(new java.io.InputStreamReader(url.openStream()))) {
+			empiricalDistribution2 = new org.apache.commons.math4.distribution.EmpiricalDistribution(100);
+			java.lang.String str = null;
+			while ((str = in.readLine()) != null) {
+				list.add(java.lang.Double.valueOf(str));
+			} 
+			in.close();
+			in = null;
+		} catch (java.io.IOException ex) {
+			org.junit.Assert.fail("IOException " + ex);
+		}
 
         dataArray = new double[list.size()];
         int i = 0;

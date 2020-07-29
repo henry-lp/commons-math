@@ -1952,14 +1952,14 @@ public class FastMathTest {
     @Test
     public void testRoundDown() {
         double x = 0x1.fffffffffffffp-2; // greatest floating point value less than 0.5
-        assertTrue(x < 0.5d);
-        assertEquals(0, FastMath.round(x));
+        org.junit.Assert.assertTrue(x < 0.5d);
+        org.junit.Assert.assertEquals(0, FastMath.round(x));
 
         x = 4503599627370497.0; // x = Math.pow(2, 52) + 1;
-        assertEquals("4503599627370497", new BigDecimal(x).toString());
-        assertTrue(x == Math.rint(x));
-        assertTrue(x == FastMath.round(x));
-        //assertTrue(x == Math.round(x)); // fails with Java 7, fixed in Java 8
+        org.junit.Assert.assertEquals("4503599627370497", BigDecimal.valueOf(x).toString());
+        org.junit.Assert.assertTrue(x == Math.rint(x));
+        org.junit.Assert.assertTrue(x == FastMath.round(x));
+        // assertTrue(x == Math.round(x)); // fails with Java 7, fixed in Java 8
     }
 
 }

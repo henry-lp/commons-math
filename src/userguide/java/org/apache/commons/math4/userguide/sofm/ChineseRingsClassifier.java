@@ -231,6 +231,9 @@ public class ChineseRingsClassifier {
 
                     /** {@inheritDoc} */
                     public double[] next() {
+						if (!hasNext()) {
+							throw new java.util.NoSuchElementException();
+						}
                         return points[n++].toArray();
                     }
 
@@ -266,6 +269,9 @@ public class ChineseRingsClassifier {
 
             /** {@inheritDoc} */
             public double[] next() {
+				if (!hasNext()) {
+					throw new java.util.NoSuchElementException();
+				}
                 ++n;
                 return points[rng.nextInt(points.length)].toArray();
             }

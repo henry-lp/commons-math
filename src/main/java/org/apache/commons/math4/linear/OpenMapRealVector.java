@@ -799,6 +799,9 @@ public class OpenMapRealVector extends SparseRealVector
         /** {@inheritDoc} */
         @Override
         public Entry next() {
+			if (!hasNext()) {
+				throw new java.util.NoSuchElementException();
+			}
             iter.advance();
             return current;
         }

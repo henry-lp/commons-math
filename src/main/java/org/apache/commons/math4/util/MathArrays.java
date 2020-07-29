@@ -253,10 +253,10 @@ public class MathArrays {
      */
     public static double distance(int[] p1, int[] p2)
     throws DimensionMismatchException {
-      checkEqualLength(p1, p2);
+      org.apache.commons.math4.util.MathArrays.checkEqualLength(p1, p2);
       double sum = 0;
       for (int i = 0; i < p1.length; i++) {
-          final double dp = p1[i] - p2[i];
+          final double dp = (double) p1[i] - p2[i];
           sum += dp * dp;
       }
       return FastMath.sqrt(sum);
@@ -305,7 +305,7 @@ public class MathArrays {
         /** Constant for increasing direction. */
         INCREASING,
         /** Constant for decreasing direction. */
-        DECREASING
+        DECREASING;
     }
 
     /**

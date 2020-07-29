@@ -69,7 +69,7 @@ public class LutherIntegratorTest {
 
         double[] y0   = new double[k.length];
         for (int i = 0; i < y0.length; ++i) {
-            y0[i] = i + 1;
+            y0[i] = (double) i + 1;
         }
         double[] y    = new double[k.length];
 

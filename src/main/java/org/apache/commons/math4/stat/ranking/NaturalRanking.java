@@ -342,7 +342,7 @@ public class NaturalRanking implements RankingAlgorithm {
         final int length = tiesTrace.size();
 
         switch (tiesStrategy) {
-            case  AVERAGE:  // Replace ranks with average
+            case AVERAGE:  // Replace ranks with average
                 fill(ranks, tiesTrace, (2 * c + length - 1) / 2d);
                 break;
             case MAXIMUM:   // Replace ranks with maximum values
@@ -366,7 +366,7 @@ public class NaturalRanking implements RankingAlgorithm {
                 f = FastMath.round(c);
                 int i = 0;
                 while (iterator.hasNext()) {
-                    ranks[iterator.next()] = f + i++;
+                    ranks[iterator.next()] = (double) f + i++;
                 }
                 break;
             default: // this should not happen unless TiesStrategy enum is changed
@@ -475,4 +475,4 @@ public class NaturalRanking implements RankingAlgorithm {
             return position;
         }
     }
-}
+	}

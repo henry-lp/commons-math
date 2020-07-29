@@ -102,8 +102,8 @@ public class RombergIntegrator extends BaseAbstractUnivariateIntegrator {
         throws TooManyEvaluationsException, MaxCountExceededException {
 
         final int m = iterations.getMaximalCount() + 1;
-        double previousRow[] = new double[m];
-        double currentRow[]  = new double[m];
+        double previousRow = new double[m];
+        double currentRow  = new double[m];
 
         TrapezoidIntegrator qtrap = new TrapezoidIntegrator();
         currentRow[0] = qtrap.stage(this, 0);
@@ -122,7 +122,7 @@ public class RombergIntegrator extends BaseAbstractUnivariateIntegrator {
             iterations.increment();
             for (int j = 1; j <= i; j++) {
                 // Richardson extrapolation coefficient
-                final double r = (1L << (2 * j)) - 1;
+                final double r = (1L << ((double) 2 * j)) - 1;
                 final double tIJm1 = currentRow[j - 1];
                 currentRow[j] = tIJm1 + (tIJm1 - previousRow[j - 1]) / r;
             }

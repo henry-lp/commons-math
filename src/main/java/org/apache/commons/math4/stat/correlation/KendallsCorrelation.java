@@ -159,7 +159,7 @@ public class KendallsCorrelation {
         }
 
         final int n = xArray.length;
-        final long numPairs = sum(n - 1);
+        final long numPairs = org.apache.commons.math4.stat.correlation.KendallsCorrelation.sum((long) n - 1);
 
         @SuppressWarnings("unchecked")
         Pair<Double, Double>[] pairs = new Pair[n];

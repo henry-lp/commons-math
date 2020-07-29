@@ -236,12 +236,12 @@ public class BracketingNthOrderBrentSolver
                 // we keep updating the high bracket, try to compensate this
                 final int p = agingA - MAXIMAL_AGING;
                 final double weightA = (1 << p) - 1;
-                final double weightB = p + 1;
+                final double weightB = (double) p + 1;
                 targetY = (weightA * yA - weightB * REDUCTION_FACTOR * yB) / (weightA + weightB);
             } else if (agingB >= MAXIMAL_AGING) {
                 // we keep updating the low bracket, try to compensate this
                 final int p = agingB - MAXIMAL_AGING;
-                final double weightA = p + 1;
+                final double weightA = (double) p + 1;
                 final double weightB = (1 << p) - 1;
                 targetY = (weightB * yB - weightA * REDUCTION_FACTOR * yA) / (weightA + weightB);
             } else {

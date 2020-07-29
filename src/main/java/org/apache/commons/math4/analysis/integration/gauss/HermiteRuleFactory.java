@@ -98,7 +98,7 @@ public class HermiteRuleFactory extends BaseRuleFactory<Double> {
             double hb = H1 * b;
             for (int j = 1; j < numberOfPoints; j++) {
                 // Compute H[j+1](a) and H[j+1](b)
-                final double jp1 = j + 1;
+                final double jp1 = (double) j + 1;
                 final double s = FastMath.sqrt(2 / jp1);
                 final double sm = FastMath.sqrt(j / jp1);
                 final double hpa = s * a * ha - sm * hma;
@@ -123,7 +123,7 @@ public class HermiteRuleFactory extends BaseRuleFactory<Double> {
                 hc = H1 * c;
                 for (int j = 1; j < numberOfPoints; j++) {
                     // Compute H[j+1](c)
-                    final double jp1 = j + 1;
+                    final double jp1 = (double) j + 1;
                     final double s = FastMath.sqrt(2 / jp1);
                     final double sm = FastMath.sqrt(j / jp1);
                     final double hpc = s * c * hc - sm * hmc;
@@ -162,7 +162,7 @@ public class HermiteRuleFactory extends BaseRuleFactory<Double> {
         if (numberOfPoints % 2 != 0) {
             double hm = H0;
             for (int j = 1; j < numberOfPoints; j += 2) {
-                final double jp1 = j + 1;
+                final double jp1 = (double) j + 1;
                 hm = -FastMath.sqrt(j / jp1) * hm;
             }
             final double d = sqrtTwoTimesNumPoints * hm;
